@@ -74,7 +74,7 @@ def buscar(nome="", cpf=""): #BUSCA CADASTRO POR MEIO DE NOME, CPF, CÓDIGO OU D
 def deletar(id):
     trans = Banco()
     trans.conectar()
-    trans.execute("DELETE FROM aluno WHERE id = ?", (id))
+    trans.execute("DELETE FROM aluno WHERE id = ?", (id,))
     trans.persist()
     trans.desconectar()
 
