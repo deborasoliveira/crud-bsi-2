@@ -4,7 +4,7 @@ class Aplicacao(): #CLASSE QUE DEFINE A INTERFACE
 
     #CRIANDO A JANELA
     jan= Tk()
-    jan.title("Cadastro de Alunos") #título da janela
+    jan.title("Cadastro de Disciplinas") #título da janela
 
     #VARIÁVEIS QUE ARMAZENAM AS INFORMAÇÕES PREENCHIDAS PELO USUÁRIO
     txtNome= StringVar() #GUARDA O QUE É DIGITADO
