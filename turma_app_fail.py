@@ -1,5 +1,5 @@
-from aluno_intrfc import *
-import aluno_bancod as comando
+from turma_interface_fail import *
+import turma_bd_fail as comando
 
 app = None
 
@@ -11,16 +11,16 @@ def ver(): #CONSULTA DE TODOS OS USUÁRIOS
 
 def procurar(): #BUSCA DE USUÁRIO ESPECÍFICO
     app.listaTurma.delete(0, END)
-    rows = comando.buscar(app.txtCODT.get(), app.txtCODD.get(), app.txtP.get(), app.txtPROF.get(), app.txtALUNO.get()) #UTILIZAÇÃO DA FUNÇÃO DE "BUSCAR" DO BANCO E UTILIZANDO AS INFORMAÇÕES DAS VARIÁVEIS
+    rows = comando.buscar(app.txtCODT.get(), app.txtCODD.get(), app.txtP.get(), app.txtCPFP.get(), app.txtCPFA.get()) #UTILIZAÇÃO DA FUNÇÃO DE "BUSCAR" DO BANCO E UTILIZANDO AS INFORMAÇÕES DAS VARIÁVEIS
     for r in rows:
         app.listaTurma.insert(END, r)
 
 def inserir():
-    comando.cadastrar(app.txtCODT.get(), app.txtCODD.get(), app.txtP.get(), app.txtPROF.get(), app.txtALUNO.get()) #CADASTRANDO
+    comando.cadastrar(app.txtCODT.get(), app.txtCODD.get(), app.txtP.get(), app.txtCPFP.get(), app.txtCPFA.get()) #CADASTRANDO
     ver() #CONFERIR O CADASTRO
 
 def update():
-    comando.atualizacao(selected[0],app.txtCODT.get(), app.txtCODD.get(), app.txtP.get(), app.txtCPFP.get(), app.txtCPFA.get()) #ALTERANDO O CADASTRO
+    comando.atualizacao(selected[0], app.txtCODT.get(), app.txtCODD.get(), app.txtP.get(), app.txtCPFP.get(), app.txtCPFA.get()) #ALTERANDO O CADASTRO
     ver() #CONSULTAR A ATUALIZAÇÃO
 
 def exclusao(): #EXCLUSÃO DE CADASTRO
@@ -37,12 +37,13 @@ def getSelectedRow(event): #PREENCHER OS CAMPOS DE ENTRADA COM AS INFORMAÇÕES 
     app.entcodt.insert(END, selected[1])
     app.entcodd.delete(0, END)
     app.entcodd.insert(END, selected[2])
-    app.entp.insert(END, selected[3])
     app.entp.delete(0, END)
-    app.cpfp.insert(END, selected[4])
-    app.cpfp.delete(0, END)
-    app.cpfa.insert(END, selected[5])
-    app.cpfa.delete(0, END)
+    app.entp.insert(END, selected[3])
+    app.entcpfp.delete(0, END)
+    app.entcpfp.insert(END, selected[4])
+    app.entcpfa.delete(0, END)
+    app.entcpfa.insert(END, selected[5])
+
 
     return selected
 
