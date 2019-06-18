@@ -10,8 +10,8 @@ class Aplicacao(): #CLASSE QUE DEFINE A INTERFACE
     txtCODT= StringVar() #GUARDA O QUE É DIGITADO
     txtCODD= StringVar()
     txtP= StringVar()
-    txtPROF= StringVar()
-    txtALUNO= StringVar()
+    txtCPFP= StringVar()
+    txtCPFA= StringVar()
 
     #Itens que estarão na janela
     lblCODT= Label(jan, text="CÓDIGO DA TURMA") #LOCALIZAÇÃO DO NOME NA JANELA
@@ -22,8 +22,8 @@ class Aplicacao(): #CLASSE QUE DEFINE A INTERFACE
     entcodt= Entry(jan, textvariable=txtCODT, width=30) #CAMPO DE ENTRADA DO NOME
     entcodd= Entry(jan, textvariable=txtCODD, width=30) #CAMPO DE ENTRADA DO CPF
     entp= Entry(jan, textvariable=txtP, width=30)
-    entcpfp= Entry(jan, textvariable=txtPROF, width=30)
-    entcpfa= Entry(jan, textvariable=txtALUNO, width=30)
+    entcpfp= Entry(jan, textvariable=txtCPFP, width=30)
+    entcpfa= Entry(jan, textvariable=txtCPFA, width=30)
     listaTurma= Listbox(jan, width=100) #LISTA DE ITENS CADASTRADOS
     scrollTurma = Scrollbar(jan) #ROLAGEM DE TELA
     #BOTÕES QUE ESTARÃO NA JANELA
@@ -47,12 +47,12 @@ class Aplicacao(): #CLASSE QUE DEFINE A INTERFACE
     entcpfa.grid(row=4, column=1)
     listaTurma.grid(row=0, column=2, rowspan=10)
     scrollTurma.grid(row=0, column=6, rowspan=10)
-    btnViewAll.grid(row=4, column=0, columnspan=2)
-    btnBuscar.grid(row=5, column=0, columnspan=2)
-    btnInserir.grid(row=6, column=0, columnspan=2)
-    btnUpdate.grid(row=7, column=0, columnspan=2)
-    btnDel.grid(row=8, column=0, columnspan=2)
-    btnClose.grid(row=9, column=0, columnspan=2)
+    btnViewAll.grid(row=5, column=0, columnspan=2)
+    btnBuscar.grid(row=6, column=0, columnspan=2)
+    btnInserir.grid(row=7, column=0, columnspan=2)
+    btnUpdate.grid(row=8, column=0, columnspan=2)
+    btnDel.grid(row=9, column=0, columnspan=2)
+    btnClose.grid(row=10, column=0, columnspan=2)
 
 
     #ASSOCIANDO BARRA DE ROLAGEM E LISTA DE ALUNO
