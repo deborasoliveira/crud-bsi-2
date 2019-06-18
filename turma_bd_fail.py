@@ -40,7 +40,7 @@ class Banco(): #CONEXÃO COM O BANCO DE DADOS E AS OPERAÇÕES QUE SERÃO REALIZ
 def iniciarDB(): #CRIANDO O BANCO DE DADOS E SE CONCTANDO À LISTA DE ALUNOS
     trans = Banco()
     trans.conectar()
-    trans.execute("CREATE TABLE IF NOT EXISTS turma (id INTEGER PRIMARY KEY , codt TEXT, codd TEXT, p TEXT, cpfp TEXT, cpfaluno TEXT)")
+    trans.execute("CREATE TABLE IF NOT EXISTS turma (id INTEGER PRIMARY KEY , codt TEXT, codd TEXT, p TEXT, cpfp TEXT, cpfa TEXT)")
     trans.persist()
     trans.desconectar()
 
@@ -54,7 +54,7 @@ def listar(): #EXIBIR TODOS OS DADOS PRESENTES NO BANCO
     trans.desconectar()
     return rows #EXIBIR USUÁRIOS CADASTRADOS
 
-def cadastrar(nome, cpf): #CADASTRA OS DADOS
+def cadastrar(codt, codd, p, cpfp, cpfa): #CADASTRA OS DADOS
     trans = Banco()
     trans.conectar()
     trans.execute("INSERT INTO turma VALUES(NULL, ?,?,?,?,?)", (codt, codd, p, cpfp, cpfa))
@@ -62,10 +62,10 @@ def cadastrar(nome, cpf): #CADASTRA OS DADOS
     trans.desconectar()
 
 
-def buscar(codt="", codd="", cpfp=""): #BUSCA CADASTRO POR MEIO DE NOME, CPF, CÓDIGO OU DEPARTAMENTO
+def buscar(codt="", codd="", p="", cpfp="", cpfa=""): #BUSCA CADASTRO POR MEIO DE NOME, CPF, CÓDIGO OU DEPARTAMENTO
     trans = Banco()
     trans.conectar()
-    trans.execute("SELECT * FROM turma WHERE codt=? or codd=? or cpfp=?", (codt, codd, cpfp))
+    trans.execute("SELECT * FROM turma WHERE codt=? or codd=? or cpfp=? or cpfa=?", (codt, codd, p, cpfp, cpfa))
     rows = trans.fetchall()
     trans.desconectar()
     return rows #RETORNA USUÁRIO SELECIONADO
@@ -74,14 +74,14 @@ def buscar(codt="", codd="", cpfp=""): #BUSCA CADASTRO POR MEIO DE NOME, CPF, C�
 def deletar(id):
     trans = Banco()
     trans.conectar()
-    trans.execute("DELETE FROM turma WHERE id = ?", (id))
+    trans.execute("DELETE FROM turma WHERE id = ?", (id,))
     trans.persist()
     trans.desconectar()
 
-def atualizacao(codt, codd, p, cpfp, cpfa):
+def atualizacao(id, codt, codd, p, cpfp, cpfa):
     trans = Banco()
     trans.conectar()
-    trans.execute("UPDATE turma SET codt =?, codd=?, p=?, cpfa=?, cpfp=? WHERE id = ?",(codt, codd, p, cpfa, cpfp))
+    trans.execute("UPDATE turma SET codt=?, codd=?, p=?, cpfp=?, cpfa=? WHERE id = ?",(codt, codd, p, cpfp, cpfa, id))
     trans.persist()
     trans.desconectar()
 
