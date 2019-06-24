@@ -1,5 +1,5 @@
-from professor_interface import *
-import professor_banco as comando
+from PROF_INTER import *
+import bancoprofessordele as comando
 
 app = None
 
@@ -35,8 +35,8 @@ def getSelectedRow(event): #PREENCHER OS CAMPOS DE ENTRADA COM AS INFORMAÇÕES 
     selected = app.listaProfessor.get(index) #ARMAZENAMENTO NA VARIÁVEL GLOBAL
     app.entNome.delete(0, END) #DELETAR E PREENCHER NOVAMENTE OS CAMPOS DE ENTRADA
     app.entNome.insert(END, selected[1])
-    app.entCOD.delete(0, END)
-    app.entCOD.insert(END, selected[2])
+    app.entcpf.delete(0, END)
+    app.entcpf.insert(END, selected[2])
 
     return selected
 
@@ -52,3 +52,4 @@ if __name__ == "__main__":
     app.btnDel.configure(command=exclusao)
     app.btnClose.configure(command=app.jan.destroy)
     app.run() #RODAR A INTERFACE
+    
