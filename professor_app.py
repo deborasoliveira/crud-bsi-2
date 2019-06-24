@@ -1,5 +1,5 @@
-from PROF_INTER import *
-import bancoprofessordele as comando
+from professor_intrfc import *
+import professor_bancod as comando
 
 app = None
 
