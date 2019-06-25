@@ -65,7 +65,7 @@ def cadastrar(codt, codd, p, cpfp, cpfa): #CADASTRA OS DADOS
 def buscar(codt="", codd="", p="", cpfp="", cpfa=""): #BUSCA CADASTRO POR MEIO DE NOME, CPF, CÓDIGO OU DEPARTAMENTO
     trans = Banco()
     trans.conectar()
-    trans.execute("SELECT * FROM turma WHERE codt=? or codd=? or cpfp=? or cpfa=?", (codt, codd, p, cpfp, cpfa))
+    trans.execute("SELECT * FROM turma WHERE codt=? or codd=? or p=? or cpfp=? or cpfa=?", (codt, codd, p, cpfp, cpfa))
     rows = trans.fetchall()
     trans.desconectar()
     return rows #RETORNA USUÁRIO SELECIONADO
